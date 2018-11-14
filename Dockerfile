@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine
 VOLUME /tmp
 ARG JAR_FILE
 COPY ${JAR_FILE} app.jar
-RUN useradd -m myuser
+RUN user add -m myuser
 USER myuser
 CMD ['java', "-jar" ,'/app.jar']
 #ENTRYPOINT ["java","-jar","/app.jar"]
