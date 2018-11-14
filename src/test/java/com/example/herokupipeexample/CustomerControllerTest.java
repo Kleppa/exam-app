@@ -15,7 +15,6 @@ public class CustomerControllerTest {
     @Test
     public void welcome() {
        assertThat(1,equalTo(1));
-       assertThat(1,equalTo(2));
     }
 
     @Test
