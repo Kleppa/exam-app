@@ -20,6 +20,7 @@ public class Customer {
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        //test
     }
 
     @Override
