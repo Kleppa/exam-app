@@ -21,34 +21,34 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @Autowired
-    public CustomerController(CustomerRepository customerRepository ,MetricRegistry registry) {
+    public CustomerController(CustomerRepository customerRepository /*,MetricRegistry registry*/) {
       this.customerRepository = customerRepository;
-        this.registry = registry;
+       // this.registry = registry;
     }
-    private final MetricRegistry registry;
+    //private final MetricRegistry registry;
     @RequestMapping("/")
     public String welcome() {
-        registry.meter("Root entrypoint").mark();
+      //  registry.meter("Root entrypoint").mark();
 
         return "Welcome to this small REST service. It will accept a GET on /list with a request parameter lastName, and a POST to / with a JSON payload with firstName and lastName as values.";
     }
 
     @RequestMapping("/list")
     public List<Customer> find(@RequestParam(value="lastName") String lastName) {
-        registry.meter("List entrypoint").mark();
+        // registry.meter("List entrypoint").mark();
 
         customerRepository.save(new Customer("Mr.","Smith"));
 
         List<Customer> results = customerRepository.findByLastName(lastName);
-        final Histogram resultCounts = registry.histogram(name(Customer.class, "result-counts"));
-        resultCounts.update(results.size());
+        //final Histogram resultCounts = registry.histogram(name(Customer.class, "result-counts"));
+        // resultCounts.update(results.size());
         return  results;
     }
 
     @PostMapping("/")
     	Customer newCustomer(@RequestBody Customer customer) {
         System.out.println(customer);
-        registry.meter("Create User Entrypoint").mark();
+        //registry.meter("Create User Entrypoint").mark();
 
         return customerRepository.save(customer);
     	}
