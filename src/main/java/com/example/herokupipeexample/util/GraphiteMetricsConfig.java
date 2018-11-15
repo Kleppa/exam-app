@@ -27,7 +27,7 @@ public class GraphiteMetricsConfig {
 //        System.out.println(host);
 //        System.out.println(apikey);
         System.out.println("THIS IS A TEST");
-        //snore
+        //snoresnore
         Graphite graphite = new Graphite(new InetSocketAddress(System.getenv("GRAPHITE_HOST"), 2003));
         GraphiteReporter reporter = GraphiteReporter.forRegistry(registry)
                 .prefixedWith(System.getenv("HOSTEDGRAPHITE_APIKEY"))
