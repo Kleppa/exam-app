@@ -37,7 +37,7 @@ public class CustomerController {
     public List<Customer> find(@RequestParam(value="lastName") String lastName) {
         registry.meter("List entrypoint").mark();
 
-        customerRepository.save(new Customer("Jarand","Kleppa"));
+        customerRepository.save(new Customer("Mr.","Smith"));
 
         List<Customer> results = customerRepository.findByLastName(lastName);
         final Histogram resultCounts = registry.histogram(name(Customer.class, "result-counts"));

@@ -10,5 +10,5 @@ server:
   port: 8081
 
 graphite:
-  host: "47b2343c.carbon.hostedgraphite.com"
-  apiKey: "fdabd6ad-85c3-414f-9384-ad7c70a72a0a"
+  host: ${GRAPHITE_HOST}
+  apiKey: ${HOSTEDGRAPHITE_APIKEY}

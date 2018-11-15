@@ -21,7 +21,7 @@ public class GraphiteMetricsConfig {
     public MetricRegistry getRegistry() {
         return new MetricRegistry();
     }
-
+//test
     @Bean
     public GraphiteReporter getReporter(MetricRegistry registry) {
         System.out.println(host);
