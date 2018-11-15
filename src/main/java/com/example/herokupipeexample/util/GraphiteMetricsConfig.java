@@ -26,6 +26,7 @@ public class GraphiteMetricsConfig {
     public GraphiteReporter getReporter(MetricRegistry registry) {
         System.out.println(host);
         System.out.println(apikey);
+        System.out.println("THIS IS A TEST");
         //snore
         Graphite graphite = new Graphite(new InetSocketAddress(host, 2003));
         GraphiteReporter reporter = GraphiteReporter.forRegistry(registry)
