@@ -13,9 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class GraphiteMetricsConfig {
-    @Value("${graphite.host}")
+    @Value("${graphite.host} ,required=false")
     private String host;
-    @Value("${graphite.apiKey}")
+    @Value("${graphite.apiKey} ,required=false")
     private String apikey;
     @Bean//ding dong dong ding ding dong etc etc xk
     public MetricRegistry getRegistry() {

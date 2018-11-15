@@ -10,5 +10,5 @@ server:
   port: 8081
 
 graphite:
-  host: "${GRAPHITE_HOST}"
-  apiKey: "${HOSTEDGRAPHITE_APIKEY}"
+  host: ${GRAPHITE_HOST}
+  apiKey: ${HOSTEDGRAPHITE_APIKEY}
