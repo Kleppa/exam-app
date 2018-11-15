@@ -17,7 +17,7 @@ public class GraphiteMetricsConfig {
     private String host;
     @Value("${graphite.apiKey}")
     private String apikey;
-    @Bean//ding dong dong ding ding dong etc etc
+    @Bean//ding dong dong ding ding dong etc etc xk
     public MetricRegistry getRegistry() {
         return new MetricRegistry();
     }
