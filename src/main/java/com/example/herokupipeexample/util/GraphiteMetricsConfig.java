@@ -13,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 
 @Configuration
 public class GraphiteMetricsConfig {
-    @Value("${graphite.host}")
-    private String host;
-    @Value("${graphite.apiKey}")
-    private String apikey;
+//    @Value("${graphite.host}")
+//    private String host;
+//    @Value("${graphite.apiKey}")
+//    private String apikey;
     @Bean//ding dong dong ding ding dong etc etc xk
     public MetricRegistry getRegistry() {
         return new MetricRegistry();
@@ -24,13 +24,13 @@ public class GraphiteMetricsConfig {
 //test
     @Bean
     public GraphiteReporter getReporter(MetricRegistry registry) {
-        System.out.println(host);
-        System.out.println(apikey);
+//        System.out.println(host);
+//        System.out.println(apikey);
         System.out.println("THIS IS A TEST");
         //snore
-        Graphite graphite = new Graphite(new InetSocketAddress(host, 2003));
+        Graphite graphite = new Graphite(new InetSocketAddress(System.getenv("GRAPHITE_HOST"), 2003));
         GraphiteReporter reporter = GraphiteReporter.forRegistry(registry)
-                .prefixedWith(apikey)
+                .prefixedWith(System.getenv("HOSTEDGRAPHITE_APIKEY"))
                 .convertRatesTo(TimeUnit.SECONDS)
                 .convertDurationsTo(TimeUnit.MILLISECONDS)
                 .filter(MetricFilter.ALL)
